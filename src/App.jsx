@@ -14,7 +14,7 @@ function App() {
         const data = await response.json();
         setData(data);
       } catch (error) {
-        console.error(error?.message || error);
+        console.error("Error fetching data", error);
       }
     }
     fetchData();
