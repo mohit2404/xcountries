@@ -7,12 +7,15 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(
-        "https://xcountries-backend.azurewebsites.net/all"
-      );
-      const data = await response.json();
-      console.log(data);
-      setData(data);
+      try {
+        const response = await fetch(
+          "https://xcountries-backend.azurewebsites.net/all"
+        );
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        console.error(error?.message || error);
+      }
     }
     fetchData();
   }, []);
